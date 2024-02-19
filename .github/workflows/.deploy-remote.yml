@@ -16,6 +16,13 @@ jobs:
         with:
           fetch-depth: 0
           ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build site
+        run: |
+          npm ci
+          npm run build
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
